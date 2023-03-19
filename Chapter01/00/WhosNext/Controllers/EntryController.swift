@@ -1,7 +1,9 @@
-class EntryController {
+import Combine
+
+class EntryController: ObservableObject {
   private var count = 0
+  @Published private(set) var entries: [Entry] = []
   private let vendor = PlainEntryVendor()
-  private(set) var entries: [Entry] = []
 }
 
 extension EntryController {
