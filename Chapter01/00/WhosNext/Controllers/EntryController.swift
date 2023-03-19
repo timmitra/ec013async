@@ -3,7 +3,7 @@ import Combine
 class EntryController: ObservableObject {
   private var count = 0
   @Published private(set) var entries: [Entry] = []
-  private let vendor = PlainEntryVendor()
+  private let vendor = ErrorEntryVendor()
 }
 
 extension EntryController {
