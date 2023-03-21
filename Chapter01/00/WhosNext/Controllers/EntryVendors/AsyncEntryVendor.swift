@@ -15,14 +15,17 @@ extension AsyncEntryVendor {
       throw MultipleOfFiveError(number: int)
     }
     let number = int % 51
-    try? await Task.sleep(for: .seconds(Int.random(in: 2...6)))
-    return number.description + suffix
+    //try? await Task.sleep(for: .seconds(Int.random(in: 2...6)))
+    return number.description + (await suffix)
   }
 }
 
 extension AsyncEntryVendor {
   private var suffix: String {
-    ".circle"
+    get async {
+      try? await Task.sleep(for: .seconds(Int.random(in: 2...6)))
+      return ".circle"
+    }
   }
 }
 
