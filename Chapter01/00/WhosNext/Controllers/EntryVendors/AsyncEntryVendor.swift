@@ -10,7 +10,7 @@ struct AsyncEntryVendor  {
 }
 
 extension AsyncEntryVendor {
-  private func imageName(for int: Int) async throws -> String {
+  func imageName(for int: Int) async throws -> String {
     if int.isMultiple(of: 5) {
       throw MultipleOfFiveError(number: int)
     }
