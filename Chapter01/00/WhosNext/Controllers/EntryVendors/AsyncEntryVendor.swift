@@ -16,16 +16,18 @@ extension AsyncEntryVendor {
     }
     let number = int % 51
     //try? await Task.sleep(for: .seconds(Int.random(in: 2...6)))
-    return number.description + (await suffix)
+    return await number.description + suffix()
   }
 }
 
-extension AsyncEntryVendor {
-  private var suffix: String {
-    get async {
-      try? await Task.sleep(for: .seconds(Int.random(in: 2...6)))
-      return ".circle"
-    }
-  }
+//extension AsyncEntryVendor {
+//  private var suffix: String {
+//    get async {
+fileprivate func suffix() async -> String {
+  try? await Task.sleep(for: .seconds(Int.random(in: 2...6)))
+  return ".circle"
 }
+//    }
+//  }
+//}
 
